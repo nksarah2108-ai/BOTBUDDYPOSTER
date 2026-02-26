@@ -16,10 +16,16 @@ st.set_page_config(
 logo = Image.open("assets/logo.png")
 
 # ======================
-# CUSTOM CSS (UNICORN PASTEL VIBE)
+# CUSTOM CSS (UNICORN UI UPGRADE)
 # ======================
 st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
+
+html, body, [class*="css"]  {
+    font-family: 'Baloo 2', cursive !important;
+}
 
 body {
     background: linear-gradient(135deg, #ffe6f7, #e6f7ff, #f0fff0);
@@ -30,28 +36,36 @@ body {
     padding-bottom: 2rem;
 }
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+/* BESARKAN FONT LABEL */
+label {
+    font-size: 18px !important;
+    font-weight: 600 !important;
 }
 
+/* BESARKAN INPUT TEXT */
+input, textarea, select {
+    font-size: 17px !important;
+    border-radius: 15px !important;
+}
+
+/* Badge */
 .badge {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-radius: 20px;
     background: #f3e8ff;
     margin-right: 8px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
+/* Button Style */
 .stButton>button {
     background: linear-gradient(90deg,#ff9ecf,#b388ff);
     color: white;
     border-radius: 25px;
-    height: 3em;
+    height: 3.2em;
     font-weight: bold;
+    font-size: 18px;
     border: none;
 }
 
@@ -59,19 +73,22 @@ body {
     background: linear-gradient(90deg,#ff6fb5,#9c6bff);
 }
 
-input, textarea, select {
-    border-radius: 15px !important;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
 # ======================
-# HEADER SECTION
+# HEADER ROW (LOGO + TITLE SEBELAH)
 # ======================
-st.image(logo, width=300)   # BESARKAN LOGO
-st.markdown("## 🌈 Borang Poster Comel ✨")
-st.markdown("Isi ikut kotak — saya jana prompt imej + ayat poster 🥰")
+col_logo, col_title = st.columns([1,2])
+
+with col_logo:
+    st.image(logo, width=260)
+
+with col_title:
+    st.markdown("""
+    <h1 style='font-size:38px; margin-bottom:5px;'>🌈 Borang Poster Comel ✨</h1>
+    <p style='font-size:20px;'>Isi ikut kotak — saya jana prompt imej + ayat poster 🥰</p>
+    """, unsafe_allow_html=True)
 
 st.markdown("""
 <span class="badge">🌸 Pastel</span>
@@ -120,9 +137,6 @@ with col7:
 
 st.markdown("---")
 
-# ======================
-# BUTTONS
-# ======================
 col_btn1, col_btn2 = st.columns([1,2])
 
 with col_btn1:
@@ -133,7 +147,7 @@ with col_btn2:
     generate = st.button("✨ Jana Prompt Poster")
 
 # ======================
-# GENERATE
+# GENERATE PROMPT
 # ======================
 if generate:
     prompt = f"""
