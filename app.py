@@ -196,7 +196,39 @@ with col_btn1:
 
 with col_btn2:
     generate = st.button("✨ Jana Prompt Poster")
+# ======================
+# STYLE PROMPT MAPPING
+# ======================
 
+style_prompt = {
+    "📚 Chibi Educational": "cute chibi educational illustration, classroom elements, soft pastel colors",
+
+    "📒 Chibi Scrapbook": "scrapbook layout, paper texture, stickers, washi tape, pastel craft style",
+
+    "📝 Chibi Sketchnotes": "hand-drawn sketchnote style, doodle icons, notebook aesthetic",
+
+    "🌸 Studygram Notes": "aesthetic studygram layout, pastel highlighters, neat handwriting style",
+
+    "💬 Komik Edukasi": "educational comic style, speech bubbles, panel layout",
+
+    "🎀 Chibi Edu Sticker": "die-cut sticker sheet style, white outline border, glossy sticker look",
+
+    "🧸 3D Pixar Crochet": "3D pixar style, crochet texture, soft yarn material, cinematic lighting",
+
+    "✂️ Sticker Cut / Diecut": "diecut sticker design, thick white border, printable sticker format",
+
+    "✏️ Chibi Doodle": "simple chibi doodle art, sketch lines, pastel color fill",
+
+    "🎨 Graffiti / Street Art": "graffiti mural art, spray paint texture, bold street style",
+
+    "🧵 Pixar Felt Sticker": "3D felt fabric texture, soft handcrafted look, plush material",
+
+    "🟩 Minecraft Style": "blocky pixel art, voxel style, minecraft inspired, square textures",
+
+    "🎮 Roblox Style": "roblox 3D character style, simple geometry, bright colors",
+
+    "✨ Anime Style": "anime illustration, cel shading, manga style line art"
+}
 # ======================
 # GENERATE PROMPT
 # ======================
