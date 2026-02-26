@@ -125,23 +125,22 @@ with col4:
     gaya = st.selectbox(
     "🎨 Gaya",
     [
-        "Chibi Educational",
-        "Chibi Scrapbook",
-        "Chibi Sketchnotes",
-        "Studygram Notes",
-        "Komik Edukasi",
-        "Chibi Edu Sticker",
-        "3D Pixar Crochet",
-        "Sticker Cut / Diecut",
-        "Chibi Doodle",
-        "Graffiti / Street Art",
-        "Pixar Felt Sticker",
-        "Minecraft Style",
-        "Roblox Style",
-        "Anime Style"
+        "📚 Chibi Educational",
+        "📒 Chibi Scrapbook",
+        "📝 Chibi Sketchnotes",
+        "🌸 Studygram Notes",
+        "💬 Komik Edukasi",
+        "🎀 Chibi Edu Sticker",
+        "🧸 3D Pixar Crochet",
+        "✂️ Sticker Cut / Diecut",
+        "✏️ Chibi Doodle",
+        "🎨 Graffiti / Street Art",
+        "🧵 Pixar Felt Sticker",
+        "🟩 Minecraft Style",
+        "🎮 Roblox Style",
+        "✨ Anime Style"
     ]
 )
-
 with col5:
     warna = st.selectbox("🌈 Warna tema", ["Pastel mix", "Pink unicorn", "Rainbow soft"])
 
