@@ -1,112 +1,155 @@
 import streamlit as st
 from PIL import Image
-import base64
 
-# =========================
+# ======================
 # PAGE CONFIG
-# =========================
+# ======================
 st.set_page_config(
     page_title="BotBuddy Cikgu Moon",
-    page_icon="🌙",
+    page_icon="🌈",
     layout="centered"
 )
 
-# =========================
+# ======================
 # LOAD LOGO
-# =========================
+# ======================
 logo = Image.open("assets/logo.png")
 
-# =========================
-# CUSTOM CSS (PASTEL UI)
-# =========================
+# ======================
+# CUSTOM CSS (UNICORN PASTEL VIBE)
+# ======================
 st.markdown("""
 <style>
 
 body {
-    background: linear-gradient(135deg, #fceff9, #e0f7fa);
+    background: linear-gradient(135deg, #ffe6f7, #e6f7ff, #f0fff0);
 }
 
-.main {
-    background-color: #ffffffcc;
-    padding: 2rem;
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 25px;
     border-radius: 25px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-h1 {
-    text-align: center;
-    color: #ff69b4;
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #f3e8ff;
+    margin-right: 8px;
+    font-size: 14px;
 }
 
 .stButton>button {
-    background-color: #ffb6c1;
+    background: linear-gradient(90deg,#ff9ecf,#b388ff);
     color: white;
-    border-radius: 20px;
+    border-radius: 25px;
     height: 3em;
-    width: 100%;
     font-weight: bold;
+    border: none;
 }
 
-.stTextInput>div>div>input {
-    border-radius: 15px;
+.stButton>button:hover {
+    background: linear-gradient(90deg,#ff6fb5,#9c6bff);
 }
 
-.stTextArea textarea {
-    border-radius: 15px;
+input, textarea, select {
+    border-radius: 15px !important;
 }
 
 </style>
 """, unsafe_allow_html=True)
 
-# =========================
-# HEADER
-# =========================
-st.image(logo, width=180)
-st.markdown("<h1>Prompt Generator 🌙<br>BOTBUDDY CIKGU MOON</h1>", unsafe_allow_html=True)
-st.markdown("✨ Jana prompt imej comel gaya chibi seperti dalam contoh ✨")
+# ======================
+# HEADER SECTION
+# ======================
+st.image(logo, width=300)   # BESARKAN LOGO
+st.markdown("## 🌈 Borang Poster Comel ✨")
+st.markdown("Isi ikut kotak — saya jana prompt imej + ayat poster 🥰")
 
-st.divider()
+st.markdown("""
+<span class="badge">🌸 Pastel</span>
+<span class="badge">🦄 Comel</span>
+<span class="badge">💜 Chibi vibe</span>
+<span class="badge">📋 Siap copy</span>
+""", unsafe_allow_html=True)
 
-# =========================
-# FORM INPUT
-# =========================
+st.markdown("---")
+
+# ======================
+# FORM
+# ======================
 tajuk = st.text_input("📌 Tajuk Poster")
-sasaran = st.text_input("🎯 Sasaran")
-tarikh = st.text_input("📅 Tarikh")
-masa = st.text_input("⏰ Masa")
-lokasi = st.text_input("📍 Lokasi")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    sasaran = st.text_input("🎯 Sasaran")
+    masa = st.text_input("⏰ Masa")
+
+with col2:
+    tarikh = st.text_input("📅 Tarikh")
+    lokasi = st.text_input("📍 Lokasi")
+
 mesej = st.text_area("💬 Mesej Utama / Objektif")
 
-saiz = st.selectbox("📐 Saiz Poster", ["A4 Portrait", "A4 Landscape", "Square 1:1"])
-gaya = st.selectbox("🎨 Gaya", ["Chibi kartun pastel", "Anime lembut", "Cute classroom illustration"])
-warna = st.selectbox("🌈 Warna Tema", ["Pastel pink + mint", "Pastel biru + ungu", "Soft rainbow pastel"])
+col3, col4, col5 = st.columns(3)
 
-st.divider()
+with col3:
+    saiz = st.selectbox("📐 Saiz", ["A4 portrait", "A4 landscape", "Square 1:1"])
 
-# =========================
-# GENERATE PROMPT
-# =========================
-if st.button("✨ Jana Prompt Poster"):
-    
+with col4:
+    gaya = st.selectbox("🎨 Gaya", ["Comel chibi kartun (pastel)", "Anime lembut", "Cute classroom"])
+
+with col5:
+    warna = st.selectbox("🌈 Warna tema", ["Pastel mix", "Pink unicorn", "Rainbow soft"])
+
+col6, col7 = st.columns(2)
+
+with col6:
+    elemen = st.text_input("✅ Elemen wajib")
+
+with col7:
+    nada = st.selectbox("🎵 Nada ayat", ["Mesra & semangat (BM)", "Formal sekolah", "Fun & ceria"])
+
+st.markdown("---")
+
+# ======================
+# BUTTONS
+# ======================
+col_btn1, col_btn2 = st.columns([1,2])
+
+with col_btn1:
+    if st.button("Reset"):
+        st.rerun()
+
+with col_btn2:
+    generate = st.button("✨ Jana Prompt Poster")
+
+# ======================
+# GENERATE
+# ======================
+if generate:
     prompt = f"""
-    Cute chibi style classroom poster illustration.
-    Theme: {tajuk}
-    Target audience: {sasaran}
-    Date: {tarikh}
-    Time: {masa}
-    Location: {lokasi}
+Cute chibi pastel classroom poster.
+Theme: {tajuk}
+Target: {sasaran}
+Date: {tarikh}
+Time: {masa}
+Location: {lokasi}
+Main message: {mesej}
+Style: {gaya}
+Color theme: {warna}
+Required elements: {elemen}
+Tone: {nada}
+High resolution, soft lighting, kawaii illustration, storybook style.
+"""
 
-    Main message: {mesej}
-
-    Style: {gaya}
-    Color palette: {warna}
-    Size format: {saiz}
-
-    Include adorable hijab teacher mascot holding laptop,
-    pastel classroom background, chalkboard,
-    soft lighting, kawaii illustration, high resolution,
-    cute, wholesome, soft shading, storybook style.
-    """
-
-    st.success("🌟 Prompt Berjaya Dijana!")
-    st.text_area("📋 Salin Prompt Ini:", prompt, height=300)
+    st.success("🌟 Prompt berjaya dijana!")
+    st.text_area("📋 Salin Prompt:", prompt, height=250)
