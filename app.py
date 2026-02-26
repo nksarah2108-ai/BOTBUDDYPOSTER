@@ -144,13 +144,47 @@ with col4:
 with col5:
     warna = st.selectbox("🌈 Warna tema", ["Pastel mix", "Pink unicorn", "Rainbow soft"])
 
+# ======================
+# JENIS POSTER PRESET
+# ======================
+
+jenis = st.selectbox(
+    "🗂 Jenis Poster",
+    [
+        "📚 Poster Akademik",
+        "🎉 Program Sekolah",
+        "🧼 Kempen Kesedaran",
+        "🎨 Poster Comel Chibi",
+        "📱 Media Sosial"
+    ]
+)
+
+preset_elemen = {
+    "📚 Poster Akademik": "Logo sekolah, Nama subjek, Nama guru, Tarikh peperiksaan, Border formal pastel",
+
+    "🎉 Program Sekolah": "Logo sekolah, Nama program penuh, Tarikh & masa jelas, QR code pendaftaran, Nama penganjur",
+
+    "🧼 Kempen Kesedaran": "Maskot chibi, Ikon berkaitan tema, Slogan besar, Call-to-action, Warna ceria",
+
+    "🎨 Poster Comel Chibi": "Karakter hijab chibi, Background kelas pastel, Sparkle effect, Sticker cute, Speech bubble dialog",
+
+    "📱 Media Sosial": "Frame Instagram style, Handle media sosial, Hashtag rasmi, QR code, Design vertical"
+}
+
 col6, col7 = st.columns(2)
 
 with col6:
-    elemen = st.text_input("✅ Elemen wajib")
+    elemen = st.text_area(
+        "✅ Elemen Wajib",
+        value=preset_elemen[jenis],
+        height=100
+    )
 
 with col7:
-    nada = st.selectbox("🎵 Nada ayat", ["Mesra & semangat (BM)", "Formal sekolah", "Fun & ceria"])
+    nada = st.selectbox(
+        "🎵 Nada ayat",
+        ["Mesra & semangat (BM)", "Formal sekolah", "Fun & ceria"]
+    )
 
 st.markdown("---")
 
