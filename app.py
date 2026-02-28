@@ -86,7 +86,7 @@ with col_logo:
 
 with col_title:
     st.markdown("""
-    <h1 style='font-size:38px; margin-bottom:5px;'>🌈 PROMPT GENERATOR ✨</h1>
+    <h1 style='font-size:38px; margin-bottom:5px;'>🌈 MOONLIGHT STUDIO ✨</h1>
     <p style='font-size:20px;'>Isi ikut kotak — saya jana prompt imej + ayat poster 🥰</p>
     """, unsafe_allow_html=True)
 
