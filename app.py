@@ -7,7 +7,7 @@ from PIL import Image
 st.set_page_config(
     page_title="BotBuddy Cikgu Moon",
     page_icon="🌈",
-    layout="centered"
+    layout="wide"
 )
 
 # ======================
